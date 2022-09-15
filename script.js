@@ -41,3 +41,55 @@ console.log(String(null));
 console.log((500).toString());
 //Boolean() global method returns true or false.
 console.log(Boolean(100));
+//when we pass null, undefined, 0, '', NaN into Boolean() method, all returns 'false'
+
+//== (Allows coercion)
+//=== (Does not allows coercion)
+
+//-----LOOPING CODE----------
+//1. FOR LOOP
+//2. WHILE LOOP
+//3. DO..WHILE LOOP
+//4. FOR..OF LOOP
+
+//FOR LOOP
+
+for (let i = 1; i <= 5; i++) {
+  console.log("this is from for loop " + i);
+}
+
+//WHILE LOOP
+
+let j = 1;
+
+while (j <= 5) {
+  console.log("this is from while loop " + j);
+  j++;
+}
+
+//Do ..while loop . first executes the code to run, then evalutes the condition.
+
+let h = 1;
+do {
+  console.log("this is from Do ..while loop " + h);
+  h++;
+} while (h <= 5);
+
+//below code will run only once, then will evaluate the condition, since the condition is false, it will stop.
+let n = 7;
+do {
+  console.log("this is from Do ..while loop. It will run only once " + n);
+  n++;
+} while (n <= 5);
+
+//for.. of loop  --intoduced lately, and it will loop over collection of data, good for looping over arrays.
+// syntax  -->
+//   for(const item of array){
+//   code to run
+//  }
+
+const myArray = [1, 2, 3, 4, 5];
+
+for (const num of myArray) {
+  console.log("Iteration number " + num);
+}
