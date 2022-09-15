@@ -93,3 +93,41 @@ const myArray = [1, 2, 3, 4, 5];
 for (const num of myArray) {
   console.log("Iteration number " + num);
 }
+
+//FUNCTIONS -- a javascript function is a block of code designed to perform a particular task. func are reusable as they can be defined once and can be called with different values resulting in different results.
+
+function add(a, b) {
+  return a + b;
+}
+console.log(add(2, 4));
+
+const arrawSum = (a, b) => a + b;
+console.log(arrawSum(10, 10));
+
+const addFive = (num) => num + 100;
+console.log(addFive(3));
+
+//SCOPE  --> scope basically determines the accessibility or visisbility of variables
+//1. block scope (introduced in 2015 ). Can be accessed only inside the block where they have been declared.
+if (true) {
+  const myVar = "hello";
+  console.log(myVar);
+}
+// console.log(myVar); // not accessable
+//2. function scope. variable declared inside the function not accessable outside the function.
+function funcScope() {
+  const myVar = "Hello World ";
+  console.log(myVar);
+}
+
+// console.log(myVar); // not accessable
+funcScope();
+//3. global scope. variable declared outside of any block code, they are accessable inside a block and a function.
+
+const globalVar = "some text";
+
+function print() {
+  console.log(globalVar);
+}
+
+print();
