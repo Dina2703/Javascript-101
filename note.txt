@@ -1,0 +1,30 @@
+---------   Scopes   ------------
+Block scope  - variables declared inside a pair of curly braces cannot be accessed from outside the block.
+
+Function scope  - variables declared inside a function cannot be accessed from outside the function.
+
+Global scope  -  globally variables can be accessed inside a block or function.
+
+Nested function scope  - nested functions have access to variables declared in their own scope as well as variables declared in the outer scope.
+
+How it works: javascript checks if the variable(for example 'c') is deifned in the inner fucntion scope it is and it's value is 30, then does the same for 'b', it checks if 'b' is available in the inner func scope, if not, goes one level up to outer function, and ckecks there, and so on  until reaches the global scope.
+exaple for nested scope:
+function outer() {
+  let b = 20;
+  function inner() {
+    let c = 30;
+    console.log(a, b, c);
+  }
+  inner();
+}
+outer();
+
+------------  Closure  ---------------
+A closure is the combination of a function bundled together with references to its surrounding state. Closure are created every time a function is created, at function creation time. 
+ In other words, a closure gives you access to an outer function's scope from an inner function.
+
+ -----------   Function Currying   ----------
+Currying is a process in functional programming in which we transform a function with multiple arguments into a sequence of nesting functions that take one arguments at a time.
+function f(a, b, c) is transformed to f(a)(b)(c)
+Currying does't call a function, it simply transforms it.
+Currying makes composing new functions very easy.
