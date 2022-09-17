@@ -28,3 +28,4 @@ Currying is a process in functional programming in which we transform a function
 function f(a, b, c) is transformed to f(a)(b)(c)
 Currying does't call a function, it simply transforms it.
 Currying makes composing new functions very easy.
+

@@ -63,3 +63,39 @@ const updateElemText = (id) => (content) =>
   (document.querySelector(`#${id}`).textContent = content);
 const updateHeaderText = updateElemText("header");
 updateHeaderText("Hello World");
+
+//Another common use of currying is function composition
+//Allows calling small functions in a specific order.
+
+const addCustomer =
+  (fn) =>
+  (...args) => {
+    console.log("saving customer info...");
+    return fn(...args);
+  };
+
+const processOrder =
+  (fn) =>
+  (...args) => {
+    console.log(`processing order #${args[0]}`);
+    return fn(...args);
+  };
+
+let completeOrder = (...args) => {
+  console.log(`Order #${[...args].toString()} completed`);
+};
+
+completeOrder = processOrder(completeOrder); //here it get only one parameter, for 'fn' parameter;
+console.log(completeOrder);
+completeOrder = addCustomer(completeOrder);
+console.log(completeOrder);
+completeOrder("1000"); //finally the function get the second argument, that passes through the chain of function, and can be completed.
+//the function above does't complete until it receives the second parameter. Usually we see nested functions like this:
+function addCustomer2(...args) {
+  return function processOrder(...args) {
+    return function completeOrder(...args) {
+      //end
+    };
+  };
+}
+//the 'completeOrder' is the last function and then we climb up to process order and finally up to addCustomer2. So when we applied them above we had to start from the inside and work our way out to the top.
