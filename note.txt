@@ -67,3 +67,16 @@ function SuperHero(fName, lName) {
 } 
 --->
 
+----------------  Class keyword --------------
+'Class' keyword was introduced in 2015. Class is syntactical sugar over the existing prototypal inheritance. 
+Class  -- example shows how we can transform User object create using class keyword.
+class User2 {
+  constructor(fName, lName) {
+    this.firstName = fName;
+    this.lastName = lName;
+  }
+  //all the methods on the prototype object are rewritten as metjods within the class
+  sayMyName2() {
+    return this.firstName + " " + this.lastName;
+  }
+}

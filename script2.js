@@ -184,3 +184,34 @@ const batman = new SuperHero("Bruce", "Wayn");
 //but we want also have 'firstName' and 'lastName' props from User object. We need to inherite them.
 console.log("Prototype inheritance: " + batman.getFullName());
 SuperHero.prototype.constructor = SuperHero; //add this line, otherwise JS thinks that Superhero object created from User which is not. Superhero has inherited properties and methods from User.
+
+//Class  -- example shows how we can transform User object create using class keyword. First create a class and initialize properties, then add methods on it.
+class User2 {
+  constructor(fName, lName) {
+    this.firstName = fName;
+    this.lastName = lName;
+  }
+  //all the methods on the prototype object are rewritten as methods within the class
+  sayMyName2() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+
+const class1 = new User2("Zhan", "Khvan");
+console.log("with class: " + class1.sayMyName2());
+console.log(class1.firstName);
+
+//Lets know rewrite Superhero which inherits from User, we have to user 2 keyword 'extends' and 'super' to inherite methods and props from other object.
+class SuperHero2 extends User2 {
+  constructor(fName, lName) {
+    super(fName, lName); //to inherite props and methods from User2 object, instead of the User.call(this, fName, lName);
+    this.isSuperHero = true;
+  }
+  fightCrime() {
+    console.log("Fighting crime");
+  }
+}
+
+const superman = new SuperHero2("Clark", "Kent");
+console.log(superman);
+console.log(superman.sayMyName2());
