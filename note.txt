@@ -55,3 +55,15 @@ default binding
 If we want to attach a method to every instance of the  'User' function. This is where 'PROTOTYPE' comes in.
 In javacsript every function has a property called 'prototype' that points to an object. To determine all our shareable properies we can use this 'prototype' property.
 
+-------------- Prototype Inheritance   --------------------
+The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object. 
+we used: 
+SuperHero.prototype = Object.create(User.prototype); to inherit getFullName() method. And 
+--->
+function SuperHero(fName, lName) {
+  //this = {}
+  User.call(this, fName, lName); //to inherite fName, lName and this from User object.
+ ----
+} 
+--->
+

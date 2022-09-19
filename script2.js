@@ -165,3 +165,22 @@ console.log(user1.getFullName());
 //In javacsript every function has a property called 'prototype' that points to an object. To determine all our shareable properies we can use this 'prototype' property.
 console.log(user1.getFullName());
 console.log(user2.getFullName()); //know we can call getFullName() from any instance of the 'User' object
+
+//Prototype Inheritance
+
+function SuperHero(fName, lName) {
+  //this = {}
+  User.call(this, fName, lName); //to inherite fName, lName and this from User object.
+  this.isSuperHero = true;
+}
+
+SuperHero.prototype.fightCrime = function () {
+  console.log("Fighting crime");
+};
+SuperHero.prototype = Object.create(User.prototype); //what this deos is when you try to access patman.getFullName() javascript checks the prototype object of superhero ot doesn't find it however it sees that the prototype object has a chain to User.prototype created because by Object.create, so it checks to see if User.prototype has a getFullName(), it does and it will execute that method. this is HOW THE METHOD IS INHERITED THROUGHT THE PROPOTYPE CHAIN.
+
+const batman = new SuperHero("Bruce", "Wayn");
+//know batman has only access to isSuperHero and fightCrime from SuperHero object.
+//but we want also have 'firstName' and 'lastName' props from User object. We need to inherite them.
+console.log("Prototype inheritance: " + batman.getFullName());
+SuperHero.prototype.constructor = SuperHero; //add this line, otherwise JS thinks that Superhero object created from User which is not. Superhero has inherited properties and methods from User.
