@@ -99,3 +99,45 @@ function addCustomer2(...args) {
   };
 }
 //the 'completeOrder' is the last function and then we climb up to process order and finally up to addCustomer2. So when we applied them above we had to start from the inside and work our way out to the top.
+
+//'this' keyword
+
+// Implicit binding. The implicit binding rule states that when a function is invoked with the dot notation, the object to the left of the dot is what 'this' keyword is referencing.
+const person = {
+  name: "Anna",
+  sayMyName: function () {
+    console.log(`My name is ${this.name}`);
+  },
+};
+//Javascript will now treat 'this.name' as 'person.name'
+person.sayMyName();
+
+//Explicit binding.
+//This time the function is separated from the 'person' object.
+//In this scenarion we have to explicity specify the context when the function is called, to do so we can use the 'call' method. 'Call' is a build-in method which allows you to specify the context with which a function is invoked.
+
+function sayMyName() {
+  console.log(`My name is ${this.name}.Called from separated function.`);
+}
+//use call(), passing in the object name to specify what 'this' keyword referencing.
+sayMyName.call(person);
+
+//New binding rule - The third rule for determinig 'this' in a function is the 'new' binding. In Javascript we can invoked the function with the 'new' keyword. The functions is invoked with this keyword referencing an empty object.
+
+//below known as a constructor functionas we create multiple persons from this function.
+function Person(name) {
+  //this = {} , 'this' is equal to an empty object.
+  // You can then add properties to the object using 'this' followed by the dot notation.
+  this.name = name;
+}
+
+const p1 = new Person("Sam"); //when the function is invoked with the 'new' keyword within the function 'this' keyword will always reference a new  empty object.
+const p2 = new Person("John");
+
+console.log(p1.name, p2.name);
+
+//Default binding  - when none of the other rules are matched. 'This' keyword will rely on the global scope.
+//When there is no dot notation, no call() method or no 'new' as well, if we simply invoke the function sayMyName() and none of the 3 rules are satisfied Javascript will default to the global scope and set 'this' keyword to the global object. In the global scope JS will try to find a variable called 'name', since it doesn't find it 'this' dot name is undefined, in or case we defined - 'globalThis.name = "Superman";
+
+sayMyName();
+globalThis.name = "Superman";

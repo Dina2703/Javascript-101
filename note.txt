@@ -29,3 +29,24 @@ function f(a, b, c) is transformed to f(a)(b)(c)
 Currying does't call a function, it simply transforms it.
 Currying makes composing new functions very easy.
 
+
+ 
+---------------- 'this' key word ---------------------
+How to determine 'this'? 4 rules.'This' value is determines by how the function is invoked.
+1. Implicit binding - most of the time tells what 'this' refers to.
+
+2. Explicit binding  -   In this scenarion we have to explicity specify the context when the function is called, to do so we can use the 'call' method. 'Call' is a build-in method which allows you to specify the context with which a function is invoked.
+
+3. New binding - in Javascript we can invoked the function with the 'new' keyword.
+4. Default binding  - when none of the other rules are matched.
+
+
+// Order of precedence for 'this' keyword 
+Important to know, when multiple rules can be applied to figure out 'this' keyword the 'new' binding takes top priority followed by explicit binding  followed by implicit binding the last in default binding.
+So 
+New binding
+Explicit binding
+Implicit binding
+default binding
+
+
