@@ -141,3 +141,27 @@ console.log(p1.name, p2.name);
 
 sayMyName();
 globalThis.name = "Superman";
+
+//Prototype
+function User(fName, lName) {
+  this.firstName = fName;
+  this.lastName = lName;
+}
+
+//now we create instances of this 'User' function using the 'new keyword.
+
+const user1 = new User("Sam", "Shown");
+const user2 = new User("Kate", "Soi");
+
+//Since the javacript is dynamic language we can attach any property to the object any time.
+User.prototype.getFullName = function () {
+  return "My full name is " + this.firstName + " " + this.lastName;
+};
+//the getFullName() is specific to just user1 object, user2 doesn't have it
+console.log(user1.getFullName());
+// console.log(user2.getFullName()); will give us an error.
+
+//If we want to attach a method to every instance of the  'User' function. This is where 'PROTOTYPE' comes in.
+//In javacsript every function has a property called 'prototype' that points to an object. To determine all our shareable properies we can use this 'prototype' property.
+console.log(user1.getFullName());
+console.log(user2.getFullName()); //know we can call getFullName() from any instance of the 'User' object

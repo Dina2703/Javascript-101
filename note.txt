@@ -50,3 +50,8 @@ Implicit binding
 default binding
 
 
+
+-----------------  Prototype  -----------------
+If we want to attach a method to every instance of the  'User' function. This is where 'PROTOTYPE' comes in.
+In javacsript every function has a property called 'prototype' that points to an object. To determine all our shareable properies we can use this 'prototype' property.
+
