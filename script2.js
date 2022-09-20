@@ -215,3 +215,37 @@ class SuperHero2 extends User2 {
 const superman = new SuperHero2("Clark", "Kent");
 console.log(superman);
 console.log(superman.sayMyName2());
+
+//Iteration in Javascript:
+//before 2015 Javascript had 3 iterating contructs:
+//1. for loop,
+//2. while loop,
+//3. do..while loop.
+//String
+// const str = "Kazakhstan";
+// //for loop
+// for (let i = 0; i < str.length; i++) {
+//   console.log(str.charAt(i));
+// }
+
+//Array
+// const arr = ["K", "a", "z", "a", "k", "h", "s", "t", "a", "n"];
+// for (let i = 0; i < arr.length; i++) {
+//   console.log(arr[i]);
+// }
+
+//How you see they had some disadvantages, like different approuches for different types of data.
+
+//The new way that introduced in 2015yr
+//---- 'For ..of loop' ---  with for..of loop, we can just focus onm functionality
+const str = "Hello";
+//String
+for (const char of str) {
+  console.log(char);
+}
+
+//Array
+const arr = ["K", "a", "z", "a", "k", "h", "s", "t", "a", "n"];
+for (const item of arr) {
+  console.log(item);
+}

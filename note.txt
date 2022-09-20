@@ -80,3 +80,27 @@ class User2 {
     return this.firstName + " " + this.lastName;
   }
 }
+
+
+-------------- Iterables and Iterators  -------------------
+before 2015 Javascript had 3 iterating contructs: 
+1. for loop,
+2. while loop, 
+3. do..while loop.
+
+Disadvantages: difficulty in accessing the element & difficult to manage iteration on the data for various types of data structures.
+
+There was a need to iterate over various data structure in a new way that abstracts away the complexity of accessing elements one by one and was at the same time uniform across the different data structure.
+Iterables and Iterators make it possible to access data from a collection one at a time which allow us to focus on what to do with the data rather than how to access the data. In the year 2015(ES6 ) two new iteration protocols were introduced which help with iteration, thery are the iterable and iterator protocols.
+1. An iterable is a data structure that wants to make its elements accessible to the public. It does so by implementing a method whose key is Symbol.iterator. That method is a factory for iterators.
+2. An iterator is a pointer for traversing the elements of a data structure (think cursors in databases).
+
+The following values are iterable:
+Arrays
+Strings
+Maps
+Sets
+DOM data structures (work in progress)
+Plain objects are not iterable.
+
+The for...in loop is used to iterate through the keys of an object. The for...of loop cannot be used to iterate over an object. You can use for...in to iterate over an iterable such arrays and strings but you should avoid using for...in for iterables. The for...of loop was introduced in ES6.
