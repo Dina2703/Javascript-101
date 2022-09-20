@@ -104,3 +104,27 @@ DOM data structures (work in progress)
 Plain objects are not iterable.
 
 The for...in loop is used to iterate through the keys of an object. The for...of loop cannot be used to iterate over an object. You can use for...in to iterate over an iterable such arrays and strings but you should avoid using for...in for iterables. The for...of loop was introduced in ES6.
+
+//for...in 
+const object = { a: 1, b: 2, c: 3 };
+
+for (const property in object) {
+  console.log(`${property}: ${object[property]}`);
+}
+
+// expected output:
+// "a: 1"
+// "b: 2"
+// "c: 3"
+
+
+//for ...of
+const array1 = ['a', 'b', 'c'];
+
+for (const element of array1) {
+  console.log(element);
+}
+
+// expected output: "a"
+// expected output: "b"
+// expected output: "c"
